@@ -1,0 +1,4 @@
+ This folder has only three exercises file: 
+ 01_basic_python.ipynb 
+ 02_data_structures_numpy_pandas.ipynb 
+ 03_intro_machine_learning_sklearn.ipynb

@@ -1,0 +1,3 @@
+student_001,72
+student_002,65
+student_003,81
