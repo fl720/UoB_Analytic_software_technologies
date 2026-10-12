@@ -1,0 +1,5 @@
+student_id,programme,hours_studied,quiz_mark,hours_per_mark,passed_quiz,mark_above_60,mark_per_hour
+s001,Data Science,4.5,72,0.0625,True,True,16.0
+s003,Data Science,6.0,81,0.07407407407407407,True,True,13.5
+s005,Data Science,5.0,77,0.06493506493506493,True,True,15.4
+s006,AI,4.0,69,0.057971014492753624,True,True,17.25
