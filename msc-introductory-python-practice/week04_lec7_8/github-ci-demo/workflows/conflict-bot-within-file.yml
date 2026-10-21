@@ -1,0 +1,35 @@
+name: Auto Conflict Creator
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  conflict-bot:
+    # Only run if the last commit message includes the exact trigger text
+    if: contains(github.event.head_commit.message, 'create conflict within file')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configure Git
+        run: |
+          git config user.name "Conflict Bot"
+          git config user.email "conflict-bot@users.noreply.github.com"
+
+      - name: Create or update shared file to cause conflict
+        run: |
+          FILE="shared.txt"
+          TIMESTAMP=$(date)
+          echo "${TIMESTAMP}: Code Conflict" >> "$FILE"
+          git add "$FILE"
+          git commit -m "Auto: Conflict Bot edit at ${TIMESTAMP}"
+          git push origin main

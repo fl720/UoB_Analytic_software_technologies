@@ -1,0 +1,25 @@
+name: Run Python Script
+
+# When to run the workflow
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest  # GitHub-hosted Linux environment
+
+    steps:
+      # Step 1: Check out your repository files
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python 3
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Step 3: Run the Python script
+      - name: Run hello.py
+        run: python hello.py

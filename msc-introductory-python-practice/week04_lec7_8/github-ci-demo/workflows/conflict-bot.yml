@@ -1,0 +1,32 @@
+name: Auto Conflict Creator
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  conflict-bot:
+    if: contains(github.event.head_commit.message, 'create conflict')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configure Git
+        run: |
+          git config user.name "Conflict Bot"
+          git config user.email "conflict-bot@users.noreply.github.com"
+
+      - name: Create conflicting file
+        run: |
+          FILENAME="conflict_$(date +%s).txt"
+          echo "This file was automatically added by the conflict bot at $(date)." > $FILENAME
+          git add $FILENAME
+          git commit -m "Auto: Created $FILENAME to trigger merge conflict"
+          git push origin main
