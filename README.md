@@ -4,4 +4,5 @@ This folder contains coursework, lectures and tutorials from Analytic Software T
 In msc-introductory-python-practice folder, we have lecture and tutorials' ipynb lab sheets. 
 Contains:
 - Basic Python knowledge
-- Libraries include: numpy, scipy, imageio, 
+- Libraries include: numpy, scipy, imageio, pandas
+- CI/CD, [testing folder in](https://github.com/fl720/github-lab-demo)
